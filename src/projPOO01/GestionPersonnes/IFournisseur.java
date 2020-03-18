@@ -4,6 +4,10 @@ import java.util.List;
 
 import projPOO01.GestionAchat.commande;
 
+/**
+ * @author antoinethebault
+ *IFournisseur
+ */
 public interface IFournisseur {
 	public boolean livre();
 	public void commande(List<commande> listcommande);

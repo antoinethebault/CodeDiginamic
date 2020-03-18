@@ -4,6 +4,10 @@ import projPOO01.Exceptions.ExceptionSaisiNumeroSecu;
 import projPOO01.Exceptions.ExceptionSaisieCodePostal;
 import projPOO01.Menu.Menus;
 
+/**
+ * @author antoinethebault
+ *Patron herite de la classe Salarie heritant elle meme de la classe Personne
+ */
 public class Patron extends Salarie implements IPatron {
 	
 

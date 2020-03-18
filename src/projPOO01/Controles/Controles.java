@@ -6,8 +6,21 @@ import java.util.Date;
 import projPOO01.Exceptions.ExceptionDate;
 import projPOO01.Exceptions.ExceptionInt;
 
+/**
+ * @author antoinethebault
+ *Controles : effectue des controles sur des donnees saisies
+ */
 public class Controles {
 
+	/**
+	 * CtrlDate
+	 * @author antoinethebault
+	 * effectue une controle sur la date au format dd/MM/yyyy sinon renvoie un message
+	 * d'erreur
+	 * @param d
+	 * @return
+	 * @throws ExceptionDate
+	 */
 	public static Date CtrlDate(String d) throws ExceptionDate{
 		String pattern = "dd/MM/yyyy";
 		SimpleDateFormat sd = new SimpleDateFormat(pattern);
@@ -22,6 +35,14 @@ public class Controles {
 		return dt;
 	}
 	
+	/**
+	 * CtrlInt
+	 * @author antoinethebault
+	 * verifie que la chaine entree en parametre est un entier
+	 * renvoie un message d'erreur sinon
+	 * @param ns
+	 * @throws ExceptionInt
+	 */
 	public static void CtrlInt(String ns) throws ExceptionInt{
 		int n=0;
 		try {

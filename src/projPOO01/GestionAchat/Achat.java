@@ -4,6 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author antoinethebault
+ *Achat represente un achat avec un intitule et effectue a une date precise pour une quantite definie
+ */
 public class Achat {
 	private Date date;
 	private String intitule;

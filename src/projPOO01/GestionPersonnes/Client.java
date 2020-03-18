@@ -7,6 +7,10 @@ import projPOO01.Exceptions.ExceptionNumeroUnique;
 import projPOO01.GestionAchat.Achat;
 import projPOO01.GestionAchat.commande;
 
+/**
+ * @author antoinethebault
+ *Client : herite de la classe Personne et a un idclient ainsi qu'une liste d'achats associee
+ */
 public class Client extends Personne implements IFournisseur, IClient {
 
 	
@@ -14,6 +18,14 @@ public class Client extends Personne implements IFournisseur, IClient {
 	private List<Achat> achats = new ArrayList<Achat>();
 
 
+	/**Constructor
+	 * @param nom
+	 * @param prenom
+	 * @param adresse
+	 * @param ville
+	 * @param codepostal
+	 * @param idclient
+	 */
 	public Client(String nom, String prenom, String adresse, String ville, String codepostal, int idclient) {
 		super(nom, prenom, adresse, ville, codepostal);
 		// TODO Auto-generated constructor stub
@@ -87,6 +99,15 @@ public class Client extends Personne implements IFournisseur, IClient {
 		return false;
 	}
 	
+	/**
+	 * @author antoinethebault
+	 * verifie que le numero donne en parametre n'existe pas deja ou si ce n'est pas un entier
+	 * auxquels cas des erreurs sont renvoyees
+	 * CtrlNumeroUniqueClient
+	 * @param ns
+	 * @param list
+	 * @throws ExceptionNumeroUnique
+	 */
 	public static void CtrlNumeroUniqueClient(String ns, ArrayList<Client> list) throws ExceptionNumeroUnique{
 		int n=0;
 		try {

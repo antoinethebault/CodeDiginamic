@@ -10,15 +10,23 @@ import projPOO01.Exceptions.ExceptionInt;
 import projPOO01.Exceptions.ExceptionNumeroUnique;
 import projPOO01.Exceptions.ExceptionSaisiNumeroSecu;
 import projPOO01.Exceptions.ExceptionSaisieCodePostal;
+import projPOO01.Exceptions.ExceptionSaisieContratAgence;
+import projPOO01.Exceptions.ExceptionSaisieDuree;
 import projPOO01.GestionAchat.Achat;
 import projPOO01.GestionAchat.commande;
 import projPOO01.GestionPersonnes.Client;
 import projPOO01.GestionPersonnes.Fournisseur;
+import projPOO01.GestionPersonnes.Interimaire;
 import projPOO01.GestionPersonnes.Patron;
 import projPOO01.GestionPersonnes.Personne;
 import projPOO01.GestionPersonnes.Salarie;
 import projPOO01.Menu.Menus;
 
+/**
+ * @author antoinethebault
+ *Saisir : gere la saisie d'un patron, d'un client, d'un salarie, d'un fournisseur
+ *d'une commande ou d'un achat
+ */
 public class Saisir {
 	public static Patron patron = new Patron();
 	public static ArrayList<Personne> listclient = new ArrayList<Personne>();
@@ -35,6 +43,9 @@ public class Saisir {
 	}
 	
 	
+	/**
+	 * SaisirPatron : gere la saisie d'un patron
+	 */
 	public static void SaisirPatron() {
 		boolean erreurcp;
 		boolean erreurns;
@@ -96,6 +107,10 @@ public class Saisir {
 		return;
 	}
 
+	/**
+	 * @author antoinethebault
+	 * SaisirSalarie : gere la saisie d'un salarie
+	 */
 	public static void SaisirSalarie(){
 		
 		ArrayList<Salarie> sl = new ArrayList<Salarie>();
@@ -171,6 +186,108 @@ public class Saisir {
 		return;
 	}
 	
+	/**
+	 * @author antoinethebault
+	 * SaisirSalarie : gere la saisie d'un interimaire
+	 * @throws ExceptionSaisieDuree 
+	 * @throws ExceptionSaisieContratAgence 
+	 */
+	public static void SaisirInterimaire(){
+		
+		ArrayList<Salarie> sl = new ArrayList<Salarie>();
+		String nom, prenom, adresse, ville, codepostal="", secu = null;
+		double salaire=0;
+		boolean erreurcp = true;
+		boolean erreurns =true;
+		
+		for(int i=0;i<5; i++) {
+			System.out.println("Saisir le nom de l'interimaire");
+			nom = Menus.sc.next();
+			System.out.println("Saisir le prenom de l'interimaire");
+			prenom = Menus.sc.next();
+			System.out.println("Saisir l'adresse de l'interimaire");
+			adresse = Menus.sc.next();
+			System.out.println("Saisir la ville de l'interimaire");
+			ville = Menus.sc.next();
+			erreurcp = true;
+			while(erreurcp) {
+				try {
+					System.out.println("Saisir le codepostal de l'interimaire");
+					codepostal = Menus.sc.next();
+					Salarie.CtrlCodePostal(codepostal);
+					erreurcp = false;
+				} catch (ExceptionSaisieCodePostal e) {
+					// TODO Auto-generated catch block
+					
+					System.out.println(e.getMessage());
+				}
+			}
+			
+			erreurns=true;
+			while(erreurns) {
+				try {
+					System.out.println("Saisir le numero de sécurité sociale de l'interimaire");
+					secu = Menus.sc.next();
+					Salarie.CtrlSaisiNumeroSecu(secu);
+					erreurns = false;
+				} catch (ExceptionSaisiNumeroSecu e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage()+ " "+ secu.length());
+				}
+			}
+			
+			
+			salaire=0;
+			System.out.println("Saisir le salaire de l'interimaire");
+			while(Menus.sc.hasNext()&& salaire == 0)
+			{
+				
+				if (Menus.sc.hasNextDouble()) {
+		            salaire = Menus.sc.nextDouble();
+		            break;
+		         }
+				else
+				{
+					System.out.println("Saisir le salaire du salarie");
+					Menus.sc.next();
+				}
+					
+			}
+			
+			System.out.println("Saisir le numero du contrat de l'agence de l'interimaire");
+			String contratAgence = Menus.sc.next();
+			try {
+				Interimaire.verifContratAgence(contratAgence);
+			} catch (ExceptionSaisieContratAgence e) {
+				System.out.println(e.getMessage());
+			}
+			
+			System.out.println("Saisir la duree du contrat de l'interimaire");
+			int duree = Menus.sc.nextInt();
+			try {
+				Interimaire.verifSaisieDuree(duree);
+			} catch (ExceptionSaisieDuree e) {
+				System.out.println(e.getMessage());
+			}
+			
+			Interimaire s;
+			s = new Interimaire(nom, prenom, adresse, ville, codepostal, secu, salaire, contratAgence, 2);
+			sl.add(s);
+			
+			
+		}
+		
+		listsalarie = new ArrayList<Personne>(sl);
+		if(Menus.choixmenu!=1) {
+			Menus.Menu();
+		}
+		return;
+	}
+	
+	/**
+	 * @author antoinethebault
+	 * SaisirClient : gere la saisie d'un client
+	 */
 	public static void SaisirClient(){
 		
 		ArrayList<Client> cl = new ArrayList<Client>();
@@ -231,6 +348,10 @@ public class Saisir {
 		return;
 	}
 	
+	/**
+	 * @author antoinethebault
+	 * SaisirFournisseur : gere la saisie d'un fournisseur
+	 */
 	public static void SaisirFournisseur(){
 		
 		ArrayList<Fournisseur> cl = new ArrayList<Fournisseur>();
@@ -353,6 +474,11 @@ public class Saisir {
 		
 	}
 	
+	/**
+	 * @author antoinethebault
+	 * SaisirCommande : gere la saisie d'une commande
+	 * @return
+	 */
 	public static ArrayList<commande> SaisirCommande(){
 		ArrayList<commande> cmd = new ArrayList<commande>();
 		Date d = null; 

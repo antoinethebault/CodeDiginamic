@@ -9,6 +9,12 @@ import projPOO01.saisie.Saisir;
 
 public class Affichages {
 
+	/**
+	 * Afficher
+	 * @author antoinethebault 
+	 * affiche le menu d'affichage des donnees, permet de faire un choix dans le menu
+	 * et appelle la methode associee
+	 */
 	public static void Afficher() {
 		
 		
@@ -45,6 +51,12 @@ public class Affichages {
 	}
 	
 	
+	/**
+	 * AfficherCommun
+	 * @author antoinethebault
+	 * affiche les donnees contenues dans la liste fournie en parametre
+	 * @param list
+	 */
 	public static void AfficherCommun(ArrayList<Personne> list ) {
 		for(Personne p:list) {
 			System.out.println(p.toString());
@@ -52,6 +64,12 @@ public class Affichages {
 		//Menus.RetourMenu();
 	}
 	
+	/**
+	 * GrouperAffichage
+	 * @author antoinethebault
+	 * cree une liste contenant tous les salaries, clients, fournisseurs et le patron
+	 * @return
+	 */
 	public static ArrayList<Personne> GrouperAffichage() {
 		ArrayList<Personne> list = new ArrayList<Personne>();
 		list.addAll(Saisir.listsalarie);

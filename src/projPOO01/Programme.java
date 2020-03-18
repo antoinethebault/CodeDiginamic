@@ -5,6 +5,11 @@ import java.util.Scanner;
 import projPOO01.Menu.Menus;
 
 
+/**
+ * @author antoinethebault
+ *Programme : point d'entree du programme
+ *appel le menu
+ */
 public class Programme {
 
 	

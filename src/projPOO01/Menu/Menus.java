@@ -10,16 +10,28 @@ import projPOO01.saisie.Saisir;
 
 
 
+/**
+ * @author antoinethebault
+ *Menus : affiche le menu global et le menu de saisie
+ */
 public class Menus {
 	public static Scanner sc =null;
 	public static int choixmenu;
 	
 	private static String choix = null;
 	
+	/**
+	 * @author antoinethebault
+	 * quitter : permet de quitter l'application
+	 */
 	public static void quitter() {
 		System.exit(0);
 	}
 			
+	/**
+	 * @author antoinethebault
+	 * Menu : affiche le menu d'accueil et appel les methodes correspondantes au choix
+	 */
 	public static void Menu() {
 		Map<String, iExecute> im1 = new HashMap<String,iExecute>();
 
@@ -43,6 +55,10 @@ public class Menus {
 	}
 
 	
+	/**
+	 * @author antoinethebault
+	 * Saisir : affiche le menu de saisie et appelle les fonctions correspondantes
+	 */
 	public static void Saisir() {
 				
 		Map<String, iExecute> im1 = new HashMap<String,iExecute>();
@@ -52,7 +68,8 @@ public class Menus {
 		im1.put("3 pour saisir les clients", Saisir::SaisirClient);
 		im1.put("4 pour saisir les fournisseur",Saisir::SaisirFournisseur);
 		im1.put("5 pour saisir le patron",Saisir::SaisirPatron);
-		im1.put("6 pour retourner au menu",Menus::Menu);
+		im1.put("6 pour saisir un interimaire",Saisir::SaisirInterimaire);
+		im1.put("7 pour retourner au menu",Menus::Menu);
 		im1.keySet().stream().sorted().forEach(System.out::println);
 		
 		while(true) {

@@ -3,6 +3,10 @@ package projPOO01.GestionAchat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author antoinethebault
+ *commande : definit une commande definie par un intitule, une date precise et une quantite
+ */
 public class commande {
 	private Date date;
 	private String intitule;

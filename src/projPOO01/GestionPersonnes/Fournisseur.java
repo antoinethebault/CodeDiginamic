@@ -9,6 +9,11 @@ import projPOO01.Exceptions.ExceptionNumeroUnique;
 import projPOO01.GestionAchat.Achat;
 import projPOO01.GestionAchat.commande;
 
+/**
+ * @author antoinethebault
+ *Fournisseur heritant de la classe Personne et ayant un idfournisseur et une liste de commandes
+ *en attribut
+ */
 public class Fournisseur extends Personne implements IClient, IFournisseur {
 
 	private int idfournisseur;
@@ -89,6 +94,15 @@ public class Fournisseur extends Personne implements IClient, IFournisseur {
 		return true;
 	}
 	
+	/**
+	 * CtrlNumeroUniqueFournisseur
+	 * @author antoinethebault
+	 * verifie que le numero fourni en parametre est un entier et qu'il n'est pas deja utilise
+	 * sinon des erreurs sont renvoyees
+	 * @param ns
+	 * @param list
+	 * @throws ExceptionNumeroUnique
+	 */
 	public static void CtrlNumeroUniqueFournisseur(String ns, ArrayList<Fournisseur> list) throws ExceptionNumeroUnique{
 		int n=0;
 		try {

@@ -15,8 +15,8 @@ public class Regrouper {
 
 	/**
 	 * Méthode permettant de regrouper les IClient 
+	 * @author antoinethebault : dans la liste listeclient
 	 * 
-	 * @return List<IClient>  pour qui isClient() est vrai
 	 */
 	public static void RegrouperIClient() {
 		List<IClient> list = new ArrayList<IClient>();
@@ -37,6 +37,11 @@ public class Regrouper {
 		
 	}
 	
+	/**
+	 * RegrouperIFournisseur
+	 * @author antoinethebault : methode permettant de recuperer tous les fournisseurs et
+	 * les charger dans la liste listifournisseur
+	 */
 	public static void RegrouperIFournisseur() {
 		List<IFournisseur> list = new ArrayList<IFournisseur>();
 		ArrayList<Personne> plist = new ArrayList<Personne>();
