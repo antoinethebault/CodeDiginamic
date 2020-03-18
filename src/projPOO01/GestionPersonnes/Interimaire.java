@@ -44,6 +44,7 @@ public class Interimaire extends Salarie {
 		if (duree<=1)
 			throw new ExceptionSaisieDuree("La duree doit etre superieures a un mois");
 			
+	
 	}
 	
 	@Override

@@ -10,6 +10,8 @@ import java.text.DecimalFormat;
 import org.junit.Before;
 import org.junit.Test;
 
+import projPOO01.Exceptions.ExceptionSaisieContratAgence;
+import projPOO01.Exceptions.ExceptionSaisieDuree;
 import projPOO01.GestionPersonnes.Interimaire;
 import projPOO01.GestionPersonnes.Salarie;
 
@@ -77,6 +79,15 @@ public class TestInterimaire {
 		i.setSalaire(setsalaire);
 		assertEquals(df.format(setsalaire),df.format(i.getSalaire()));
 	}
-
+	
+	@Test(expected=ExceptionSaisieContratAgence.class)
+	public void testVerifContratAgence() throws ExceptionSaisieContratAgence {
+		Interimaire.verifContratAgence("1234");
+	}
+	
+	@Test(expected=ExceptionSaisieDuree.class)
+	public void testVerifSaisieDuree() throws ExceptionSaisieDuree {
+		Interimaire.verifSaisieDuree(1);
+	}
 	
 }
